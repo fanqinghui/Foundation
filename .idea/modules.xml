@@ -3,6 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Foundation.iml" filepath="$PROJECT_DIR$/Foundation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-cache/foundation-cache.iml" filepath="$PROJECT_DIR$/foundation-cache/foundation-cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-common/foundation-common.iml" filepath="$PROJECT_DIR$/foundation-common/foundation-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-dao/foundation-dao.iml" filepath="$PROJECT_DIR$/foundation-dao/foundation-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-extend/foundation-extend.iml" filepath="$PROJECT_DIR$/foundation-extend/foundation-extend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-interface/foundation-interface.iml" filepath="$PROJECT_DIR$/foundation-interface/foundation-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-parent/foundation-parent.iml" filepath="$PROJECT_DIR$/foundation-parent/foundation-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-serviceImpl/foundation-serviceImpl.iml" filepath="$PROJECT_DIR$/foundation-serviceImpl/foundation-serviceImpl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/foundation-web/foundation-web.iml" filepath="$PROJECT_DIR$/foundation-web/foundation-web.iml" />
     </modules>
   </component>
 </project>

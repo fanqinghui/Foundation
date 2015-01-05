@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--监控spring bean 性能
+     如果你的dateSource定义在spring中，javamelody会自动发现不需要额外配置-->
+    <bean id="facadeMonitoringAdvisor" class="net.bull.javamelody.MonitoringSpringAdvisor">
+        <property name="pointcut">
+            <bean class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+                <property name="patterns">
+                    <array>
+                        <value>org\.noahx\.test\..*</value>
+                    </array>
+                </property>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

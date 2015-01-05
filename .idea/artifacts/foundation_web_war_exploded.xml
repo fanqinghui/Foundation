@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="Foundation:war exploded">
-    <output-path>$PROJECT_DIR$/target/Foundation</output-path>
+  <artifact type="exploded-war" name="foundation-web:war exploded">
+    <output-path>$PROJECT_DIR$/foundation-web/target/foundation-web</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Foundation" />
+          <element id="module-output" name="foundation-web" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.1.1.RELEASE" />
@@ -30,7 +30,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/foundation-web/target/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Foundation/web/Web" />
+      <element id="javaee-facet-resources" facet="foundation-web/web/Web" />
     </root>
   </artifact>
 </component>
