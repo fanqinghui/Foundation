@@ -10,12 +10,5 @@
 
     <modules>
         <module>foundation-parent</module>
-        <module>foundation-web</module>
-        <module>foundation-common</module>
-        <module>foundation-interface</module>
-        <module>foundation-serviceImpl</module>
-        <module>foundation-dao</module>
-        <module>foundation-cache</module>
-        <module>foundation-extend</module>
     </modules>
 </project>
