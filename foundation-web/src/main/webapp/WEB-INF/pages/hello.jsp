@@ -6,5 +6,6 @@
 </head>
 <body>
 	<h1>${message}1</h1>
+	<h1>${userName}</h1>
 </body>
 </html>
