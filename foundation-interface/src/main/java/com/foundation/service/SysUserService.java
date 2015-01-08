@@ -1,6 +1,6 @@
 package com.foundation.service;
 
-import com.foundation.dao.po.sys.SysUser;
+import com.foundation.dao.sys.entry.SysUser;
 
 /**
  * Created by joey on 15-1-7.

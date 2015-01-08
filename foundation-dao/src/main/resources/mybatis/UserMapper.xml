@@ -6,7 +6,7 @@
 	<!--
 		获取用户: 输出直接映射到对象, login_name列要"as loginName"以方便映射 ,team_id as "team.id"创建team对象并赋值
 	-->
-	<select id="get" parameterType="long" resultType="User">
+	<select id="get" parameterType="long" resultType="com.foundation.dao.sys.entry.SysUser">
 		select id, name, email,
 		login_name as loginName,
 		team_id as "team.id"
@@ -15,7 +15,7 @@
 	</select>
 
 	<!-- 查询用户,演示: 1.输入用map传入多个参数 2.<where>语句, 智能添加where和and关键字 3.输出直接映射对象 -->
-	<select id="search" parameterType="map" resultType="User">
+	<select id="search" parameterType="map" resultType="com.foundation.dao.sys.entry.SysUser">
 		select id, name, email,
 		login_name as loginName,
 		team_id as "team.id"
@@ -31,7 +31,7 @@
 	</select>
 
 	<!-- 插入用户： 1.由数据库生成id并赋值到user对象 2.输入用对象, 嵌套属性表达式#{team.id} -->
-	<insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.foundation.dao.sys.entry.SysUser" useGeneratedKeys="true" keyProperty="id">
 		insert into ss_user (
 		login_name, name, password, email, team_id)
 		values (

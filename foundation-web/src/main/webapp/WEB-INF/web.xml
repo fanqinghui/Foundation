@@ -3,28 +3,20 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
 http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
     <display-name>Spring MVC Application</display-name>
-    <!-- 配置spring的监听器 -->
+    <!-- 配置spring -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:/spring/spring-context.xml
-            classpath:/spring/spring-db.xml
+            classpath:/spring/spring-context.xml,
+            classpath:/spring/spring-db.xml,
             classpath:net/bull/javamelody/monitoring-spring.xml
         </param-value>
     </context-param>
-    <servlet>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/spring-mvc.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>mvc-dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <!--spring-->
+
     <!-- utf-8编码过滤-->
     <filter>
         <filter-name>encodingFilter</filter-name>
@@ -42,6 +34,22 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <filter-name>encodingFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
+    <!--spring mvc-->
+    <servlet>
+        <servlet-name>springServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet
+        </servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/spring-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>springServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
     <!-- javamelody===begin -->
     <filter>
         <filter-name>monitoring</filter-name>
@@ -55,7 +63,6 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
         <listener-class>net.bull.javamelody.SessionListener</listener-class>
     </listener>
     <!-- javamelody===end -->
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>

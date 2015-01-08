@@ -1,4 +1,4 @@
-package com.foundation.dao.po;
+package com.foundation.dao;
 
 import java.io.Serializable;
 import java.util.Date;
