@@ -6,7 +6,7 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
-        default-lazy-init="true">
+        default-lazy-init="true"  default-autowire="byName">
 
     <!-- 自动扫描且只扫描@Controller -->
     <context:component-scan base-package="com.foundation.Web" use-default-filters="false">

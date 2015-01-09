@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
-       default-lazy-init="true">
+       default-lazy-init="true"  default-autowire="byName">
 
     <!-- 加载 jdbc.properties 配置文件 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
