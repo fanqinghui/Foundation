@@ -11,7 +11,7 @@
 
     <!-- 定义aspectj -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <!--设置扫描包路径-->
+    <!--设置扫描service,cache,dao的路径-->
     <context:component-scan base-package="com.foundation.serviceImpl.*"/>
     <context:component-scan base-package="com.foundation.cache.*"/>
     <context:component-scan base-package="com.foundation.dao.*"/>

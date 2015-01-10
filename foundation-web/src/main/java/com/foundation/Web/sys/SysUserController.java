@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 @Controller
 @RequestMapping(value = "/user/")
 public class SysUserController extends BaseController {
-    @Autowired(required = false)
+    @Autowired
     SysUserService sysUserService;
 
     @RequestMapping(value ="getUser",method = {RequestMethod.GET,RequestMethod.POST})

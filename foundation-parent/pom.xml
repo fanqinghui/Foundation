@@ -31,6 +31,9 @@
         <druid.version>0.2.13</druid.version>
         <mybatis.version>3.2.8</mybatis.version>
         <aspectj.version>1.7.4</aspectj.version>
+        <jedis.version>2.1.0</jedis.version>
+        <jackson.version>2.4.0</jackson.version>
+        <fastjson.version>1.2.3</fastjson.version>
         <!-- 项目属性 -->
         <jdbc.driver.groupId>mysql</jdbc.driver.groupId>
         <jdbc.driver.artifactId>mysql-connector-java</jdbc.driver.artifactId>
@@ -137,6 +140,14 @@
                 <artifactId>mybatis-spring</artifactId>
                 <version>1.2.2</version>
             </dependency>
+
+            <!--cache-->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
             <!--jsp servlet相关-->
             <dependency>
                 <groupId>javax.servlet</groupId>
@@ -185,6 +196,28 @@
                 <groupId>com.google.zxing</groupId>
                 <artifactId>core</artifactId>
                 <version>2.2</version>
+            </dependency>
+            <!--json-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${jackson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
 
             <!--常用工具包 -->
