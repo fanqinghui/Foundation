@@ -1,4 +1,4 @@
-package com.fundation.common;
+package common;
 
 import java.util.logging.Logger;
 

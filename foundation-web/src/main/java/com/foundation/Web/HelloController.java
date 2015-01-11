@@ -1,6 +1,6 @@
 package com.foundation.Web;
 
-import com.fundation.common.UtilTest;
+import common.UtilTest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;

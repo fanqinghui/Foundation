@@ -1,8 +1,10 @@
 package com.foundation.cache.sys;
 
+import com.alibaba.fastjson.JSON;
 import com.foundation.cache.RedisBaseUtils;
 import com.foundation.dao.sys.dao.SysUserDao;
 import com.foundation.dao.sys.entry.SysUser;
+import org.springframework.asm.TypeReference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
@@ -23,10 +25,11 @@ public class SysUserCache {
         Jedis jedis= RedisBaseUtils.getJedisInstanse();
         if(jedis.exists(""+id)){
             System.out.println(jedis.get(id+""));
-           user= sysUserDao.getUserById(id);
+            user= JSON.parseObject(jedis.get(id+""),SysUser.class);
+          // user= sysUserDao.getUserById(id);
         }else{
              user=sysUserDao.getUserById(id);
-            jedis.set(""+id,user.getUserName());
+            jedis.set(""+id,JSON.toJSONString(user));
         }
         return user;
     }
