@@ -26,7 +26,6 @@ public class SysUserCache {
         if(jedis.exists(""+id)){
             System.out.println(jedis.get(id+""));
             user= JSON.parseObject(jedis.get(id+""),SysUser.class);
-          // user= sysUserDao.getUserById(id);
         }else{
              user=sysUserDao.getUserById(id);
             jedis.set(""+id,JSON.toJSONString(user));
