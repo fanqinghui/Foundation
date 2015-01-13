@@ -10,7 +10,7 @@
         http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
         http://www.springframework.org/schema/tx
         http://www.springframework.org/schema/tx/spring-tx-4.0.xsd"
-       default-lazy-init="true"  default-autowire="byName">
+        default-autowire="byName">
 
     <!-- 加载 jdbc.properties 配置文件 -->
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -24,9 +24,10 @@
     <!-- 配置数据源 -->
     <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
           init-method="init" destroy-method="close">
-        <property name="url" value="${jdbc_url}"/>
-        <property name="username" value="${jdbc_username}"/>
-        <property name="password" value="${jdbc_password}"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/my?useUnicode=true"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
         <!-- 初始化连接大小 -->
         <property name="initialSize" value="0"/>
         <!-- 连接池最大使用连接数量 -->
@@ -62,16 +63,17 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置 -->
-        <property name="typeAliasesPackage" value="com.foundation.dao.entity"/>
+        <property name="typeAliasesPackage" value="com.foundation.dao.entry"/>
         <!-- 显式指定Mapper文件位置 -->
-        <property name="mapperLocations" value="classpath:/mybatis/*Mapper.xml"/>
+        <property name="mapperLocations" value="classpath:/mybatis/*.xml"/>
     </bean>
+
     <!-- 扫描basePackage下所有以@MyBatisRepository标识的 接口-->
-    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="org.springside.examples.showcase" />
-        <<property name="annotationClass" value="org.springside.examples.showcase.repository.mybatis.MyBatisRepository"/>&ndash;&gt;
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.foundation.dao.MyBatisRepository" />
+        <property name="annotationClass" value="com.fundation.util.annocation.MyBatisRepository"/>
     </bean>
-    -->
+
     <!-- 配置事务管理器 -->
     <bean name="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

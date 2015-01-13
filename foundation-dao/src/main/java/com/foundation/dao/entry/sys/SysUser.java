@@ -1,4 +1,4 @@
-package com.foundation.dao.sys.entry;
+package com.foundation.dao.entry.sys;
 
 import common.BasePo;
 

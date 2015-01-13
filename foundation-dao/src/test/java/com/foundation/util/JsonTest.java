@@ -1,6 +1,6 @@
 package com.foundation.util;
 
-import com.foundation.dao.sys.entry.SysUser;
+import com.foundation.dao.entry.sys.SysUser;
 import common.json.JsonUtils;
 import org.junit.Test;
 

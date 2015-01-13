@@ -55,19 +55,6 @@
             <artifactId>aspectjweaver</artifactId>
         </dependency>
         <!-- AOP end -->
-        <!--数据库相关-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
