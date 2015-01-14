@@ -1,7 +1,7 @@
 package common.json;
 
 import com.alibaba.fastjson.JSON;
-import common.BasePo;
+import common.po.BasePo;
 
 /**
  * <p>Created by: qingHui

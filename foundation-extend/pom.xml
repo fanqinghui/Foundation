@@ -11,6 +11,6 @@
     </parent>
 
     <artifactId>foundation-extend</artifactId>
-
+    <packaging>jar</packaging>
 
 </project>
