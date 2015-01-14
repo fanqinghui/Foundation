@@ -4,6 +4,9 @@ import com.alibaba.fastjson.JSON;
 import com.foundation.cache.RedisBaseUtils;
 import com.foundation.dao.MyBatisRepository.sys.SysUserDao;
 import com.foundation.dao.entry.sys.SysUser;
+import common.json.JsonMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import redis.clients.jedis.Jedis;
@@ -14,7 +17,9 @@ import redis.clients.jedis.Jedis;
  * <p>Version: 1.0
 */
 @Component
-public class SysUserCache {
+public class SysUserCache  {
+
+    Logger logger= LoggerFactory.getLogger(SysUserCache.class);
 
     @Autowired
     SysUserDao sysUserDao;
@@ -27,8 +32,12 @@ public class SysUserCache {
             user= JSON.parseObject(jedis.get(id+""),SysUser.class);
         }else{
              user=sysUserDao.queryById(id);
-            if(user!=null)
-                jedis.set(""+id,JSON.toJSONString(user));
+            if(user!=null) {
+              //  String result = jedis.set("" + id, JSON.toJSONString(user));
+                String result=jedis.setex("" + id, 20, JsonMapper.nonDefaultMapper().toJson(user).toString());
+                logger.info("redis set result: "+result);
+            }
+
         }
         return user;
     }
