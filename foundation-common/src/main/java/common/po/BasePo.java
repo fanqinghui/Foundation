@@ -1,4 +1,4 @@
-package common;
+package common.po;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,7 +7,6 @@ import java.util.Date;
  * Created by joey on 15-1-7.
  */
 public class BasePo implements Serializable {
-
 
     private Long id;
     private Integer disabled;

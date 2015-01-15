@@ -1,6 +1,6 @@
 package com.foundation.dao.entry.sys;
 
-import common.BasePo;
+import common.po.BasePo;
 
 /**
  * Created by joey on 15-1-7.
