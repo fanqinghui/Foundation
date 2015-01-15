@@ -1,8 +1,8 @@
 package com.foundation.dao.MyBatisRepository.sys;
 
+import com.foundation.dao.MyBatisRepository.MybatisBaseDao;
 import com.foundation.dao.entry.sys.SysUser;
 import com.fundation.util.annocation.MyBatisRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  * <p>Created by: qingHui
@@ -10,8 +10,6 @@ import org.springframework.stereotype.Repository;
  * <p>Version: 1.0
  */
 @MyBatisRepository
-@Repository
-public interface SysUserDao{
-  public SysUser queryById(Long id);
+public interface SysUserDao extends MybatisBaseDao<SysUser>{
 }
 
