@@ -27,15 +27,15 @@ public class SysUserCache  {
     public SysUser getUserById(Long id)throws Exception{
         SysUser user=null;
         Jedis jedis= RedisBaseUtils.getJedisInstanse();
-        if(jedis.exists(""+id)){
-            System.out.println(jedis.get(id+""));
+        if(jedis.exists(SysUser.class.getName()+id)){
+            System.out.println(jedis.get(SysUser.class.getSimpleName()+id));
             user= JSON.parseObject(jedis.get(id+""),SysUser.class);
         }else{
              user=sysUserDao.queryById(id);
             if(user!=null) {
               //  String result = jedis.set("" + id, JSON.toJSONString(user));
-                String result=jedis.setex("" + id, 20, JsonMapper.nonDefaultMapper().toJson(user).toString());
-                logger.info("redis set result: "+result);
+                String result=jedis.setex(SysUser.class.getSimpleName()+id, 50, JsonMapper.nonDefaultMapper().toJson(user).toString());
+                logger.info(SysUser.class.getSimpleName()+id+"redis set result: "+result);
             }
 
         }
