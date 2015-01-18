@@ -1,6 +1,7 @@
 package com.foundation.cache.sys;
 
 import com.alibaba.fastjson.JSON;
+import com.foundation.cache.BaseRedisCache;
 import com.foundation.cache.RedisBaseUtils;
 import com.foundation.dao.MyBatisRepository.sys.SysUserDao;
 import com.foundation.dao.entry.sys.SysUser;
@@ -17,12 +18,17 @@ import redis.clients.jedis.Jedis;
  * <p>Version: 1.0
 */
 @Component
-public class SysUserCache  {
+public class SysUserCache extends BaseRedisCache<SysUser> {
 
     Logger logger= LoggerFactory.getLogger(SysUserCache.class);
 
     @Autowired
     SysUserDao sysUserDao;
+
+    @Override
+    public void setObj(Class obj) {
+        obj=SysUser.class;
+    }
 
     public SysUser getUserById(Long id)throws Exception{
         SysUser user=null;
@@ -34,11 +40,13 @@ public class SysUserCache  {
              user=sysUserDao.queryById(id);
             if(user!=null) {
               //  String result = jedis.set("" + id, JSON.toJSONString(user));
-                String result=jedis.setex(SysUser.class.getSimpleName()+id, 50, JsonMapper.nonDefaultMapper().toJson(user).toString());
+                String result=jedis.setex(SysUser.class.getSimpleName()+id, 0, JsonMapper.nonDefaultMapper().toJson(user).toString());
                 logger.info(SysUser.class.getSimpleName()+id+"redis set result: "+result);
             }
 
         }
         return user;
     }
+
+
 }
