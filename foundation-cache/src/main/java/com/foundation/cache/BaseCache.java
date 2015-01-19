@@ -10,5 +10,5 @@ public interface BaseCache {
      * 获取前缀key名
      * @return
      */
-    public  String getPrefixKey();
+    public  String getPrefixKey(Class obj);
 }

@@ -25,25 +25,16 @@ public class SysUserCache extends BaseRedisCache<SysUser> {
     @Autowired
     SysUserDao sysUserDao;
 
-    @Override
-    public void setObj(Class obj) {
-        obj=SysUser.class;
-    }
-
     public SysUser getUserById(Long id)throws Exception{
         SysUser user=null;
-        Jedis jedis= RedisBaseUtils.getJedisInstanse();
-        if(jedis.exists(SysUser.class.getName()+id)){
-            System.out.println(jedis.get(SysUser.class.getSimpleName()+id));
-            user= JSON.parseObject(jedis.get(id+""),SysUser.class);
+        //Jedis jedis= RedisBaseUtils.getJedisInstanse();
+        if(exists(getPrefixKey(SysUser.class) + id)){
+            user= (SysUser) getObject(getPrefixKey(SysUser.class)+id,SysUser.class);
         }else{
              user=sysUserDao.queryById(id);
             if(user!=null) {
-              //  String result = jedis.set("" + id, JSON.toJSONString(user));
-                String result=jedis.setex(SysUser.class.getSimpleName()+id, 0, JsonMapper.nonDefaultMapper().toJson(user).toString());
-                logger.info(SysUser.class.getSimpleName()+id+"redis set result: "+result);
+                logger.info(SysUser.class.getSimpleName()+id+"redis set result: "+setObject(getPrefixKey(SysUser.class) + id, user));
             }
-
         }
         return user;
     }
