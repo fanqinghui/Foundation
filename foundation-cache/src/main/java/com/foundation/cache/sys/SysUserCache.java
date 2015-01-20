@@ -27,7 +27,6 @@ public class SysUserCache extends BaseRedisCache<SysUser> {
 
     public SysUser getUserById(Long id)throws Exception{
         SysUser user=null;
-        //Jedis jedis= RedisBaseUtils.getJedisInstanse();
         if(exists(getPrefixKey(SysUser.class) + id)){
             user= (SysUser) getObject(getPrefixKey(SysUser.class)+id,SysUser.class);
         }else{

@@ -12,7 +12,9 @@ import redis.clients.jedis.Jedis;
  */
 public class BaseRedisCache<T> implements BaseCache{
 
-    Jedis jedis= RedisBaseUtils.getJedisInstanse();
+    Jedis jedis=RedisBaseUtils.getJedisPoolInstanse().getResource();//jedisPool连接池方式
+    // RedisBaseUtils.getJedisInstanse();//jedis单实例方式
+
     /**
      * 往redis里set值
      */
