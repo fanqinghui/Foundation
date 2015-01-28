@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Foundation.iml" filepath="$PROJECT_DIR$/Foundation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Foundation.iml" filepath="$PROJECT_DIR$/Foundation.iml" />
       <module fileurl="file://$PROJECT_DIR$/foundation-cache/foundation-cache.iml" filepath="$PROJECT_DIR$/foundation-cache/foundation-cache.iml" />
       <module fileurl="file://$PROJECT_DIR$/foundation-common/foundation-common.iml" filepath="$PROJECT_DIR$/foundation-common/foundation-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/foundation-dao/foundation-dao.iml" filepath="$PROJECT_DIR$/foundation-dao/foundation-dao.iml" />

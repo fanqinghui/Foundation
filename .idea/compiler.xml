@@ -27,14 +27,20 @@
         <module name="foundation-dao" />
         <module name="foundation-extend" />
         <module name="foundation-interface" />
-        <module name="foundation-parent" />
         <module name="foundation-serviceImpl" />
         <module name="foundation-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Foundation" target="1.6" />
+      <module name="foundation-cache" target="1.7" />
+      <module name="foundation-common" target="1.7" />
+      <module name="foundation-dao" target="1.7" />
+      <module name="foundation-extend" target="1.7" />
+      <module name="foundation-interface" target="1.7" />
       <module name="foundation-parent" target="1.6" />
+      <module name="foundation-serviceImpl" target="1.7" />
+      <module name="foundation-web" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
