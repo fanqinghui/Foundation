@@ -11,4 +11,5 @@ public class BaseTest {
     public void println(Object obj){
         Logger.getAnonymousLogger().info(obj.toString());
     }
+
 }
