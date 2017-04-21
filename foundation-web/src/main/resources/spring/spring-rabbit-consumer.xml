@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:rabbit="http://www.springframework.org/schema/rabbit" xmlns:p="http://www.springframework.org/schema/p"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd"
+		default-lazy-init="true">
+
+
+	<!-- 连接服务配置  -->
+	<rabbit:connection-factory id="connectionFactory" username="guest" password="guest" host="localhost" port="5672"/>
+	<rabbit:admin connection-factory="connectionFactory"/>
+	<!-- queue 队列声明 durable:是否持久化 exclusive: 仅创建者可以使用的私有队列，断开后自动删除 auto_delete: 当所有消费客户端连接断开后，是否自动删除队列-->
+	<rabbit:queue id="sms_queue_one" durable="true" auto-delete="false" exclusive="false" name="sms_queue_one"/>
+
+	<!--exchange  分四种类型：direct fanout topic headers-->
+	<!--交换机定义  p2p-->
+	<rabbit:direct-exchange name="sms-direct-exchange" durable="true" auto-delete="false" id="sms-direct-exchange">
+		<rabbit:bindings>
+			<rabbit:binding queue="sms_queue_one" key="sms_queue_one_key"/>
+		</rabbit:bindings>
+	</rabbit:direct-exchange>
+
+
+	<!-- spring template声明 (点对点) -->
+	<rabbit:template exchange="sms-direct-exchange" id="amqpTemplate" retry-template="retryConnTemplate"
+					 connection-factory="connectionFactory" />
+
+	<!-- 增加失败重试机制，发送失败之后，会尝试重发三次，重发间隔(ms)为
+        第一次 initialInterval
+        此后：initialInterval*multiplier > maxInterval ? maxInterval : initialInterval*multiplier。
+        配合集群使用的时候，当mq集群中一个down掉之后，重试机制尝试其他可用的mq。
+     -->
+	<bean id="retryConnTemplate" class="org.springframework.retry.support.RetryTemplate">
+		<property name="backOffPolicy">
+			<bean class="org.springframework.retry.backoff.ExponentialBackOffPolicy">
+				<property name="initialInterval" value="500"/>
+				<property name="multiplier" value="10.0"/>
+				<property name="maxInterval" value="5000"/>
+			</bean>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+		default-lazy-init="true">
+
+	<dubbo:application name="baseService_consumer" />
+	<dubbo:registry address="zookeeper://localhost:2181" id="baseServiceZookeeper"/>
+	<dubbo:protocol name="dubbo" port="20880" />
+
+	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
+	<dubbo:reference interface="com.foundation.soa.api.ILogisticsBiz" id="logisticsBiz"
+					 group="logistics_soa" version="1.0" timeout="60000" protocol="dubbo"
+					 registry="baseServiceZookeeper" validation="false" check="false"
+					 retries="2"/>
+
+
+	<!-- 生成远程服务代理，可以和本地bean一样使用demoService -->
+	<dubbo:reference interface="com.foundation.soa.api.ISysFileBiz" id="sysFileBiz"
+					 group="files_soa" version="1.0" timeout="60000" protocol="dubbo"
+					 registry="baseServiceZookeeper" validation="false" check="false"
+					 retries="2"/>
+</beans>
