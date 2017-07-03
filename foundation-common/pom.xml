@@ -6,7 +6,6 @@
     <parent>
         <groupId>com.foundation</groupId>
         <artifactId>foundation-parent</artifactId>
-        <relativePath>../foundation-parent</relativePath>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>foundation-common</artifactId>
