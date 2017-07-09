@@ -1,0 +1,13 @@
+
+package com.foundation.protobuf.bean;
+
+enum OrderStatus{
+    ON=0;
+    OFF=1;
+}
+
+message Order{
+    required int32 id=1;
+    required string userName=2;
+
+}
