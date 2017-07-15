@@ -13,14 +13,13 @@
     <packaging>jar</packaging>
          
 <dependencies>
-         <!--
+     
     <dependency>
         <groupId>io.grpc</groupId>
         <artifactId>grpc-all</artifactId>
         <version>0.13.2</version>
     </dependency>
-         -->
-</dependencies>
+    </dependencies>
 
     <build>
         <extensions>
