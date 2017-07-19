@@ -6,5 +6,5 @@
 ### **Mq**:rocketMq（rabbitMq）
 ### **缓存** ：redis
 ### **数据交换** ：protobuf
-### **自动化部署** ：ansiable
+### **自动化部署** ：ansiable（playbook剧本）
 
