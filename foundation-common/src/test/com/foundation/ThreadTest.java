@@ -43,6 +43,5 @@ public class ThreadTest {
                 e.printStackTrace();
             }
         });
-
     }
 }
