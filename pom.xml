@@ -22,7 +22,7 @@
         <jdk.version>1.8</jdk.version>
         <foundation.version>1.1</foundation.version>
         <spring.version>4.1.1.RELEASE</spring.version>
-        <guava.version>17.0</guava.version>
+        <guava.version>22.0</guava.version>
         <druid.version>0.2.13</druid.version>
         <mybatis.version>3.2.8</mybatis.version>
         <aspectj.version>1.7.4</aspectj.version>
@@ -39,39 +39,14 @@
 
     <!-- 预定义依赖项的version,scope与exclusions,子项目中只需定义groupId 与  artifactId 即可 -->
     <dependencyManagement>
-        <dependencies>
-            <!--foundation-->
-            <dependency>
-                <groupId>com.foundation</groupId>
-                <artifactId>foundation-common</artifactId>
-                <version>${foundation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.foundation</groupId>
-                <artifactId>foundation-dao</artifactId>
-                <version>${foundation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.foundation</groupId>
-                <artifactId>foundation-cache</artifactId>
-                <version>${foundation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.foundation</groupId>
-                <artifactId>foundation-interface</artifactId>
-                <version>${foundation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.foundation</groupId>
-                <artifactId>foundation-serviceImpl</artifactId>
-                <version>${foundation.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.foundation</groupId>
-                <artifactId>foundation-extend</artifactId>
-                <version>${foundation.version}</version>
-            </dependency>
 
+        <dependencies>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
             <!--spring-->
             <dependency>
                 <groupId>org.springframework</groupId>
