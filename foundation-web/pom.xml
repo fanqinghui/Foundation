@@ -136,9 +136,32 @@
 
     <build>
         <finalName>foundation-web</finalName>
+        <plugins>
+            <!-- jetty插件 -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.3.v20170317</version>
+                <configuration>
+                    <scanIntervalSeconds>0</scanIntervalSeconds>
+                    <httpConnector>
+                        <port>8088</port>
+                    </httpConnector>
+                    <webAppConfig>
+                        <contextPath>/</contextPath>
+                    </webAppConfig>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>org.mortbay.util.URI.charset</name>
+                            <value>utf-8</value>
+                        </systemProperty>
+                    </systemProperties>
+                    <stopKey/>
+                    <stopPort/>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
-
-    
 
 
 </project>

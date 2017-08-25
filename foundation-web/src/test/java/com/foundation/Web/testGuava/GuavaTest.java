@@ -1,8 +1,11 @@
 package com.foundation.Web.testGuava;
 
+import com.google.common.base.Optional;
+import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.*;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
@@ -72,5 +75,12 @@ public class GuavaTest {
     }
 
     ListeningExecutorService service=MoreExecutors.listeningDecorator(Executors.newFixedThreadPool(3));
+
+    @Test
+    public void test3(){
+        List<String> list= Lists.newArrayList("1","2");
+        System.out.println(Optional.absent());
+
+    }
 
 }
