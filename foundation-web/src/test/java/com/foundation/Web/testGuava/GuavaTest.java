@@ -6,9 +6,7 @@ import com.google.common.util.concurrent.*;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 /**
  * @author fqh
@@ -21,11 +19,27 @@ public class GuavaTest {
 
     @Test
     public void test() {
+        ExecutorService service=Executors.newFixedThreadPool(1);
+
+   /*     Future<String> future=service.submit(new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return "xxx";
+            }
+        });
+        try {
+            String sss=future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }*/
+
         ListenableFuture<String> listenableFuture = executorService.submit(new Callable<String>() {
             @Override
             public String call() throws Exception {
                 int i = 1;
-                i = i / 0;
+                //i = i / 0;
                 Thread.sleep(1000);
                 return "good luck!!!";
             }
