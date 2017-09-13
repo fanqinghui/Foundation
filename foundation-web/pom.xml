@@ -94,7 +94,7 @@
             <groupId>com.google.zxing</groupId>
             <artifactId>core</artifactId>
         </dependency>
-
+ 
         <!--常用工具包 -->
         <dependency>
             <groupId>com.google.guava</groupId>
